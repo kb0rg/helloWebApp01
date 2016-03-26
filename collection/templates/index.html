@@ -1,12 +1,15 @@
-{% load staticfiles %}
-<!doctype html>
-<html>
-<head>
-    <title>Django Practice with HelloWebApp</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-<body>
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}
+    Homepage - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
     <h1>Insert traditional "Hello, World!" statement here.</h1>
+    {% if number %}Number exists!{% endif %}
+    <p>Django can pluralize word{{ numA|pluralize }} based on numerical variable input!</p>
+    <p>Django can also turn {{ numA }} into {{ numA|apnumber }}...</p>
+    <p>{{ numB }} into {{ numB|intcomma }}...</p>
+    <p>and {{ numC }} into {{ numC|intword }}!</p>
     <p>More things will go here.</p>
-</body>
-</html>
+{% endblock content %}
