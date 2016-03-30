@@ -5,13 +5,8 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Insert traditional "Hello, World!" statement here.</h1>
-    <p>My name is: {{ thing|title }}</p>
-    <p>My favorite word is: {{ word|truncatechars:7 }}</p>
-    {% if number %}Number exists!{% endif %}
-    <p>Django can pluralize word{{ numA|pluralize }} based on numerical variable input!</p>
-    <p>Django can also turn {{ numA }} into {{ numA|apnumber }}...</p>
-    <p>{{ numB }} into {{ numB|intcomma }}...</p>
-    <p>and {{ numC }} into {{ numC|intword }}!</p>
-    <p>More things will go here.</p>
+    {% for thing in things %}
+    <h2>{{ thing.name }}</h2>
+    <p>{{ thing.description }}</p>
+    {% endfor %}
 {% endblock content %}

@@ -1,17 +1,18 @@
 from django.shortcuts import render
+from collection.models import Thing
 
 # Create your views here.
 def index(request):
     numA = 5
     numB = 1500
     numC = 100000000
-    thing = "Thing name"
+    things = Thing.objects.all()
     word = "sphygmomanometer"
     return render(request, 
                     'index.html', 
                     {'numA': numA,
                     'numB': numB,
                     'numC': numC,
-                    'thing': thing,
+                    'things': things,
                     'word': word,
                     })
