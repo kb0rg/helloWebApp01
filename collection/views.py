@@ -3,16 +3,15 @@ from collection.models import Thing
 
 # Create your views here.
 def index(request):
-    numA = 5
-    numB = 1500
-    numC = 100000000
     things = Thing.objects.all()
-    word = "sphygmomanometer"
     return render(request, 
-                    'index.html', 
-                    {'numA': numA,
-                    'numB': numB,
-                    'numC': numC,
+                    'index.html', {
                     'things': things,
-                    'word': word,
                     })
+
+
+def thing_detail(request, slug):
+    thing = Thing.objects.get(slug=slug)
+    return render(request, 'things/thing_detail.html',{
+        'thing': thing,
+        })
