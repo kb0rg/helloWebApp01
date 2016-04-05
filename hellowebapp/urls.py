@@ -13,7 +13,7 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include, url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 from collection import views
@@ -31,5 +31,6 @@ urlpatterns = [
         name='thing_detail'),
     url(r'^things/(?P<slug>[-\w]+)/edit/$',
         views.edit_thing, name='edit_thing'),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
