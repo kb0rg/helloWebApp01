@@ -33,12 +33,18 @@ urlpatterns = [
     url(r'^contact/$', 
         TemplateView.as_view(template_name='contact.html'), 
         name='contact'),
-    
+
     url(r'^things/(?P<slug>[-\w]+)/$', 
         views.thing_detail,
         name='thing_detail'),
     url(r'^things/(?P<slug>[-\w]+)/edit/$',
         views.edit_thing, name='edit_thing'),
+
+    # browse flow
+    url(r'^browse/name/$',
+        views.browse_by_name, name='browse'),
+    url(r'^browse/name/(?P<initial>[-\w]+)/$',
+        views.browse_by_name, name='browse_by_name'),
 
     #password reset urls
     url(r'^accounts/password/reset/$', 
