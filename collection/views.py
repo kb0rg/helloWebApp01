@@ -2,10 +2,12 @@ from django.contrib.auth.decorator import login_required
 from django.http import Http404
 from django.template.defaultfilters import slugify
 from django.shortcuts import render, redirect
+
 from collection.forms import ThingForm
 from collection.models import Thing
 
-# Create your views here.
+
+
 def index(request):
     things = Thing.objects.all()
     return render(request, 

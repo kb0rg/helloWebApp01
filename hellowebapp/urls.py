@@ -33,11 +33,14 @@ urlpatterns = [
     url(r'^contact/$', 
         TemplateView.as_view(template_name='contact.html'), 
         name='contact'),
+    
     url(r'^things/(?P<slug>[-\w]+)/$', 
         views.thing_detail,
         name='thing_detail'),
     url(r'^things/(?P<slug>[-\w]+)/edit/$',
         views.edit_thing, name='edit_thing'),
+
+    #password reset urls
     url(r'^accounts/password/reset/$', 
         password_reset,
         {'template_name': 'registration/password_reset_form.html'},
@@ -54,11 +57,13 @@ urlpatterns = [
         password_reset_complete,
         {'template_name': 'registration/password_reset_complete.html'},
         name="password_reset_complete"),
+
     url(r'^accounts/register/$', MyRegistrationView.as_view(),
         name='registration_register'),
     url(r'^accounts/create_thing/$',
         views.create_thing,
         name='registration_create_thing'),
+
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
