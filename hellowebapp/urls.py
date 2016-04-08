@@ -41,7 +41,7 @@ urlpatterns = [
         {'template_name': 'registration/password_reset_form.html'},
         name="password_reset"),
     url(r'^accounts/password/reset/done/$', password_reset_done,
-        {'template_name': 'registration/password_reset_done.hmtl'},
+        {'template_name': 'registration/password_reset_done.html'},
         name="password_reset_done"),
     url(r'^accounts/password/reset/(?P<uidb64>[0-9A-Za-z_\-]+/(?P<token>[0-9A-Za-z]{1,20})/$)',
         password_reset_confirm,
